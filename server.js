@@ -8,9 +8,13 @@ app.use(express.urlencoded({
     extended: true
 }));
 
-app.get('/', function (req, res) {
-    return res.send({ error: true, message: 'user Web API' })
+app.get('/',(req, res) =>{
+    res.send('This is my API running...')
 });
+
+// app.get('/', function (req, res) {
+//     return res.send({ error: true, message: 'user Web API' })
+// });
 
 
 let dbConn = mysql.createConnection({
