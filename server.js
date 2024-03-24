@@ -31,7 +31,7 @@ let dbConn = mysql.createConnection({
 
 dbConn.connect((err) => {
     if (err){
-        console.log('error connect mySQL database = ',err)
+        console.log('error connect mySQL databasek = ',err)
         return;
     }
     console.log('my SQL connecting successfully');
