@@ -5,7 +5,6 @@ const multer = require('multer');
 let mysql = require('mysql');
 const path = require('path');
 const fs = require('fs');
-const bcrypt = require('bcrypt');
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -24,10 +23,10 @@ app.get('/', function (req, res) {
 
 
 let dbConn = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '',
-    database: 'db_pagunplook',
+    host: 'b4fjqwr1q9bhvh1bjues-mysql.services.clever-cloud.com',
+    user: 'up8pcpl7hj17bnax',
+    password: '7M7KZACvIm6DRXR2wuwE',
+    database: 'b4fjqwr1q9bhvh1bjues',
 });
 
 dbConn.connect((err) => {
