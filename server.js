@@ -5,7 +5,7 @@ const multer = require('multer');
 let mysql = require('mysql');
 const path = require('path');
 const fs = require('fs');
-let port = process.env.PORT || 3000;
+const bcrypt = require('bcrypt');
 
 app.use(express.json());
 app.use(express.urlencoded({
@@ -24,10 +24,10 @@ app.get('/', function (req, res) {
 
 
 let dbConn = mysql.createConnection({
-    host: 'b4fjqwr1q9bhvh1bjues-mysql.services.clever-cloud.com',
-    user: 'up8pcpl7hj17bnax',
-    password: '7M7KZACvIm6DRXR2wuwE',
-    database: 'b4fjqwr1q9bhvh1bjues',
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'db_pagunplook',
 });
 
 dbConn.connect((err) => {
@@ -179,7 +179,8 @@ app.post('/uploadfile', upload.single('myFile'), (req, res, next) => {
         console.log("error", 'Please upload a file');
         return res.status(400).send({ code: 400, msg: 'Please upload a file' });
     } else {
-        const imagePath = path.resolve(file.path);
+        // const imagePath = path.resolve(file.path);
+        const imagePath = file.path;
 
         dbConn.query('UPDATE user SET file_path = ? WHERE user_id = ?', [imagePath, user_id], (err, results) => {
             if (err) {
@@ -412,8 +413,8 @@ app.delete('/delproblem/:pb_id', function(req,res){
 
 
 // //set port
-app.listen(3306, function () {
-    console.log('Node app is running on port 3306');
+app.listen(3000, function () {
+    console.log('Node app is running on port 3000');
 
 });
 
